@@ -30,16 +30,17 @@ namespace TimberMill.Service
 
         public void ProcessLogMessages(NLogEvents nevents)
         {
-            Log.Info("Received!");
 
             if (nevents == null)
             {
-                Log.Info("was null");
+                Log.Info("Received was null");
                 return;
             }
+            Log.Info("Received wasnt NULL!");
             //Log.Info("in: {0} {1}", nevents.Events.Length, events.Count);
             _logService.LogEvents(nevents.ClientName, nevents.Events.ToList());
         }
         #endregion
     }
+
 }

@@ -34,8 +34,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NLog">
-      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>D:\Downloads\jkowalski-NLog-Build-2.0.0.2007-0-g72f6495\jkowalski-NLog-72f6495\build\bin\Debug\.NET Framework 4.0\NLog.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,7 +50,7 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\TimberMill.Service\Reference.cs">
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -58,13 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="Service References\TimberMill.Service\TimberMillService.wsdl" />
-    <None Include="Service References\TimberMill.Service\TimberMillService.xsd">
+    <None Include="Service References\ServiceReference1\TimberMillService.wsdl" />
+    <None Include="Service References\ServiceReference1\TimberMillService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\TimberMill.Service\TimberMillService1.wsdl" />
-    <None Include="Service References\TimberMill.Service\TimberMillService1.xsd">
+    <None Include="Service References\ServiceReference1\TimberMillService1.wsdl" />
+    <None Include="Service References\ServiceReference1\TimberMillService1.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -72,19 +71,19 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\TimberMill.Service\" />
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TimberMill.Service\TimberMillService.disco" />
+    <None Include="Service References\ServiceReference1\TimberMillService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TimberMill.Service\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TimberMill.Service\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\TimberMill.Service\Reference.svcmap">
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

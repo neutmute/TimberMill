@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e93baaba-eb22-4300-aa89-e745bd0f57df" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="NLog" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:6834/TimberMillService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TimberMillService.xsd" MetadataType="Schema" ID="c39ff455-06a7-4e5f-b049-b2755be181d0" SourceId="1" SourceUrl="http://localhost:6834/TimberMillService.svc?xsd=xsd1" />
+    <MetadataFile FileName="TimberMillService.wsdl" MetadataType="Wsdl" ID="8f626a0b-b4ff-453f-9d57-8aafbafe5ff8" SourceId="1" SourceUrl="http://localhost:6834/TimberMillService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="TimberMillService1.xsd" MetadataType="Schema" ID="ffb6ba30-d1c0-4256-98a0-0973b616dfd0" SourceId="1" SourceUrl="http://localhost:6834/TimberMillService.svc?xsd=xsd0" />
+    <MetadataFile FileName="TimberMillService1.wsdl" MetadataType="Wsdl" ID="aa05c7e5-4e09-457b-b190-655ec374d13e" SourceId="1" SourceUrl="http://localhost:6834/TimberMillService.svc?wsdl" />
+    <MetadataFile FileName="TimberMillService.disco" MetadataType="Disco" ID="ed2c2d0a-c6d5-474f-89fe-004d43c29739" SourceId="1" SourceUrl="http://localhost:6834/TimberMillService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

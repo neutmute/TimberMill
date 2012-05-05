@@ -14,8 +14,8 @@ namespace ConsoleAppTester
         static void Main(string[] args)
         {
 
-            TimberMill.Service.LogReceiverServerClient client = new TimberMill.Service.LogReceiverServerClient();
-            client.ProcessLogMessages(null);
+            //TimberMill.Service.LogReceiverServerClient client = new TimberMill.Service.LogReceiverServerClient();
+            //client.ProcessLogMessages(null);
 
             for (int i = 0; i < 10; i++)
             {
@@ -25,7 +25,8 @@ namespace ConsoleAppTester
                 {
                     Log.Trace("Even number iteration {0}", i);
                 }
-                //Thread.Sleep(20);
+                LogManager.Flush();
+                //Thread.Sleep(10000);
             }
         }
     }
