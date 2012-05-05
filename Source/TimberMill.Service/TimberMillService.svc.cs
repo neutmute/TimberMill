@@ -26,12 +26,17 @@ namespace TimberMill.Service
         }
         #endregion
 
-
         #region ILogReceiverServer Members
 
         public void ProcessLogMessages(NLogEvents nevents)
         {
-            
+            Log.Info("Received!");
+
+            if (nevents == null)
+            {
+                Log.Info("was null");
+                return;
+            }
             //Log.Info("in: {0} {1}", nevents.Events.Length, events.Count);
             _logService.LogEvents(nevents.ClientName, nevents.Events.ToList());
         }

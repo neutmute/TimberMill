@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimberMill.Web", "Source\TimberMill.Web\TimberMill.Web.csproj", "{BC9E820F-DC12-4281-AA9B-0A58D2FAB6D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTester", "Source\ConsoleAppTester\ConsoleAppTester.csproj", "{A949E51D-4BF2-4E7B-AABA-02FADC19DC2B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{41B1BB8B-947F-4B0D-B56F-D4F3E70577C5} = {41B1BB8B-947F-4B0D-B56F-D4F3E70577C5}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

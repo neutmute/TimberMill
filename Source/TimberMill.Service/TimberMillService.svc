@@ -1,7 +1,7 @@
 ﻿<%@ ServiceHost 
 	Language="C#" 
 	Debug="true" 
-	Service="TimberMill.Service.TimberMillService" 
+	Service="TimberMill.Service.TimberMillService, TimberMill.Service" 
 	Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf"
 	CodeBehind="TimberMillService.svc.cs" 
 %>
