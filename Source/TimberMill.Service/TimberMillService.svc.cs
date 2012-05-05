@@ -36,7 +36,15 @@ namespace TimberMill.Service
                 Log.Info("Received was null");
                 return;
             }
-            Log.Info("Received wasnt NULL!");
+            var events = nevents.ToEventInfo("Client");
+            Log.Info("Received {0} events", events.Count);
+            
+            foreach (var ev in events)
+            {
+                var logger = LogManager.GetLogger(ev.LoggerName);
+                logger.Log(ev);
+            }
+
             //Log.Info("in: {0} {1}", nevents.Events.Length, events.Count);
             _logService.LogEvents(nevents.ClientName, nevents.Events.ToList());
         }

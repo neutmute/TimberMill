@@ -25,9 +25,9 @@ namespace ConsoleAppTester
                 {
                     Log.Trace("Even number iteration {0}", i);
                 }
-                LogManager.Flush();
-                //Thread.Sleep(10000);
+
             }
+            Thread.Sleep(10000);
         }
     }
 }

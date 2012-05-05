@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TimberMill.Domain.Objects;
 using TimberMill.Domain.Repositories;
 
 namespace TimberMill.Data
@@ -10,9 +11,9 @@ namespace TimberMill.Data
     {
         #region ISourceRepository Members
 
-        public Domain.Objects.Source GetOrCreate(string name)
+        public Source GetOrCreate(string name)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         #endregion

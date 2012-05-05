@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TimberMill.Domain.Objects;
 using TimberMill.Domain.Repositories;
 
 namespace TimberMill.Data
@@ -10,9 +11,9 @@ namespace TimberMill.Data
     {
         #region IBatchRepository Members
 
-        public Domain.Objects.Batch Create(Domain.Objects.Source source)
+        public Batch Create(Source source)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         #endregion
