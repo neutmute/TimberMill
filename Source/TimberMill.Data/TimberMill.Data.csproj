@@ -52,6 +52,7 @@
     <Compile Include="SqlBatchRepository.cs" />
     <Compile Include="SqlLogEventRepository.cs" />
     <Compile Include="SqlSourceRepository.cs" />
+    <Compile Include="TimberMillDatabaseInitializer.cs" />
     <Compile Include="TimberMillDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

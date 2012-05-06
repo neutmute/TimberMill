@@ -12,11 +12,11 @@ namespace TimberMill.Domain.Objects
 
         public Batch Batch { get; set; }
 
+        public int Sequence { get; set; }
+
         public DateTime TimeStamp { get; set; }
 
-        public string LoggerName { get; set; }
-
-        public int Level { get; set; }
+        public string Level { get; set; }
 
         public string Message { get; set; }
 

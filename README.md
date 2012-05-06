@@ -1,6 +1,7 @@
-TimberMill (It's where all the logs are sent!)
+TimberMill (Where all the logs are sent!)
 ==============================================
-Server side implementation of LogReceiverService (http://nlog-project.org/wiki/LogReceiverService_target)
-Receives logs from a target over WCF and logs to a centralised database using Entity Framework Code First
+Implementation of ILogReceiverServer to receive logs from the LogReceiverService target (http://nlog-project.org/wiki/LogReceiverService_target).
+Uses WCF BasicHttp binding.
+Saves logs to a centralised database using Entity Framework Code First.
 
 See the 'ConsoleAppTester' project in the solution for an example client binding.

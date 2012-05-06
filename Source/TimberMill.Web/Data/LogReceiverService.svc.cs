@@ -28,7 +28,6 @@ namespace TimberMill.Web.Data
 
         public void ProcessLogMessages(NLogEvents nevents)
         {
-
             _logService.LogEvents(nevents);
         }
         #endregion

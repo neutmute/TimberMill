@@ -12,7 +12,7 @@ namespace TimberMill.Domain.Objects
         public Source Source { get; set; }
 
         public DateTime DateReceived { get; set; }
-
+        
         public Batch()
         {
             DateReceived = DateTime.Now;

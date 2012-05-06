@@ -30,13 +30,13 @@ namespace TimberMill.Data
 
         static TimberMillDbContext()
         {
-            var initialiser = new DropCreateDatabaseIfModelChanges<TimberMillDbContext>();
+            var initialiser = new TimberMillDatabaseInitializer();
             Database.SetInitializer(initialiser);
         }
 
         public static void ReseedDatabase()
         {
-            var initialiser = new DropCreateDatabaseIfModelChanges<TimberMillDbContext>();
+            var initialiser = new TimberMillDatabaseInitializer();
             initialiser.InitializeDatabase(new TimberMillDbContext());
         }
 
