@@ -13,5 +13,9 @@ namespace TimberMill.Domain.Objects
 
         public string Category { get; set; }
 
+        public override string ToString()
+        {
+            return string.Format("Name={0}, Category={1}", Name, Category);
+        }
     }
 }

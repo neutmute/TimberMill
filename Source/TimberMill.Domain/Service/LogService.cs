@@ -23,20 +23,49 @@ namespace TimberMill.Domain.Service
             _eventRepository = eventRepository;
         }
 
-        public void LogEvents(string clientName, IList<LogEventInfo> events)
+        public void LogEvents(NLogEvents events)
         {
-            Source source = GetSource(clientName);
+            Source source = ParseClientName(events.ClientName);
             var batch = _batchRepository.Create(source);
+           
+            var timberMillEvents = ExtractLogEvents(events, batch);
+            timberMillEvents.ForEach(_eventRepository.Save);
 
-            foreach (var nlogEvent in events)
-            {
-                var logEvent = new LogEvent(batch, nlogEvent);
-                _eventRepository.Save(logEvent);
-            }
-            Log.Info("{0} events saved", events.Count);
+            Log.Info("Received {0} events from {1}", timberMillEvents.Count, source);
         }
 
-        private Source GetSource(string clientName)
+        private List<LogEvent> ExtractLogEvents(NLogEvents events, Batch batch)
+        {
+            var baseTimeUtc = new DateTime(events.BaseTimeUtc, DateTimeKind.Utc);
+            List<LogEvent> timberMillEvents = new List<LogEvent>();
+            for (int j = 0; j < events.Events.Length; ++j)
+            {
+                var ev = events.Events[j];
+
+                LogEvent timbermillEvent = new LogEvent();
+
+                timbermillEvent.Batch = batch;
+                timbermillEvent.TimeStamp = baseTimeUtc.AddTicks(ev.TimeDelta);
+                timbermillEvent.Level = ev.LevelOrdinal;
+                timbermillEvent.Message = events.Strings[ev.MessageOrdinal];
+                timbermillEvent.LoggerName = events.Strings[ev.LoggerOrdinal];
+
+                //for (int i = 0; i < events.LayoutNames.Count; ++i)
+                //{
+                //    string layoutName = events.LayoutNames[i];
+                //    switch (layoutName)
+                //    {
+                //        case "exception":
+                //            timbermillEvent.Exception = ev.Values[i];
+                //            break;
+                //    }
+                //}    
+              
+            }
+            return timberMillEvents;
+        }
+
+        private Source ParseClientName(string clientName)
         {
             string[] categorySourceSplit = clientName.Split(new []{"|"}, StringSplitOptions.None);
             string sourceCategory = null;

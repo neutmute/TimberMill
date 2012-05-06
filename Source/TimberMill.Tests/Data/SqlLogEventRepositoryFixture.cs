@@ -22,7 +22,7 @@ namespace TimberMill.Tests.Data
             var logEvent = new LogEvent();
 
             logEvent.Batch = batch;
-            logEvent.ExceptionMessage = "woooah";
+            logEvent.Exception = "woooah";
             logEvent.Message = "unit test";
             logEvent.TimeStamp = DateTime.Parse("2012-05-06 13:40");
 
@@ -38,8 +38,7 @@ namespace TimberMill.Tests.Data
             Assert.AreEqual(Convert.ToDateTime("06-May-2012 13:40:00.000"), events[0].TimeStamp);
             Assert.AreEqual(null, events[0].Level);
             Assert.AreEqual("unit test", events[0].Message);
-            Assert.AreEqual("woooah", events[0].ExceptionMessage);
-            Assert.AreEqual(null, events[0].ExceptionStackTrace);
+            Assert.AreEqual("woooah", events[0].Exception);
             #endregion
         }
     }

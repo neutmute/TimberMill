@@ -28,10 +28,8 @@ namespace TimberMill.Web.Data
 
         public void ProcessLogMessages(NLogEvents nevents)
         {
-            var events = nevents.ToEventInfo("Client");
-            Log.Info("Received {0} events from {1}", events.Count, nevents.ClientName);
 
-            _logService.LogEvents(nevents.ClientName, events);
+            _logService.LogEvents(nevents);
         }
         #endregion
     }
