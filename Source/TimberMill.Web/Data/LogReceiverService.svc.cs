@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
 using System.Text;
 using NLog;
 using NLog.LogReceiverService;
 using TimberMill.Domain.Service;
 
-namespace TimberMill.Service
+namespace TimberMill.Web.Data
 {
-    
-    public class TimberMillService : ILogReceiverServer
+    public class LogReceiverService : ILogReceiverServer
     {
         #region Fields
         private readonly LogService _logService;
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
         #endregion
-        
+
         #region Ctor
-        public TimberMillService(LogService logService)
+        public LogReceiverService(LogService logService)
         {
             _logService = logService;
         }
@@ -32,10 +30,9 @@ namespace TimberMill.Service
         {
             var events = nevents.ToEventInfo("Client");
             Log.Info("Received {0} events from {1}", events.Count, nevents.ClientName);
-            
+
             _logService.LogEvents(nevents.ClientName, events);
         }
         #endregion
     }
-
 }

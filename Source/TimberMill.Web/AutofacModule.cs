@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Web;
 using Autofac;
 using NLog;
 using TimberMill.Data;
 using TimberMill.Domain.Service;
-using Module = Autofac.Module;
+using TimberMill.Web.Data;
 
-namespace TimberMill.Service
+namespace TimberMill.Web
 {
     public class AutofacModule : Module
     {
@@ -22,7 +21,7 @@ namespace TimberMill.Service
         {
             base.Load(builder);
 
-            Log.Trace("Registering TimberMill.Service module");
+            Log.Info("Registering TimberMill.Web AutofacModule");
 
             var dataAssembly = typeof(TimberMillDbContext).Assembly;
             var domainAssembly = typeof(LogService).Assembly;
@@ -36,9 +35,9 @@ namespace TimberMill.Service
                 .AsSelf();
 
             builder.Register(
-                c => new TimberMillService(c.Resolve<LogService>()))
+                c => new LogReceiverService(c.Resolve<LogService>()))
                 .InstancePerDependency()
-                .As<TimberMillService>();
+                .As<LogReceiverService>();
 
         }
     }

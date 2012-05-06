@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Autofac;
+using Autofac.Integration.Wcf;
+using NLog;
 
 namespace TimberMill.Web
 {
@@ -12,6 +15,8 @@ namespace TimberMill.Web
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -31,10 +36,32 @@ namespace TimberMill.Web
 
         protected void Application_Start()
         {
+            Log.Info("-------------------------------------------------------------------------------------------------------");
+            ComposeAutofac();
+
             AreaRegistration.RegisterAllAreas();
 
             RegisterGlobalFilters(GlobalFilters.Filters);
             RegisterRoutes(RouteTable.Routes);
+        }
+
+        private static void ComposeAutofac()
+        {
+            //// WCF
+            var builder = new ContainerBuilder();
+
+            // Assembly.LoadFrom was locking the dll's and couldn't recompile. bye bye fancy shit.
+
+            builder.RegisterModule(new AutofacModule());
+
+            var container = builder.Build();
+
+            //// WCF
+            AutofacHostFactory.Container = container;
+
+            // MVC
+            //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
         }
     }
 }

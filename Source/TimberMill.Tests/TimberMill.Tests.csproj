@@ -96,10 +96,6 @@
       <Project>{C2F31AB3-EC6D-4B91-A256-FCB43EADDAFC}</Project>
       <Name>TimberMill.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TimberMill.Service\TimberMill.Service.csproj">
-      <Project>{41B1BB8B-947F-4B0D-B56F-D4F3E70577C5}</Project>
-      <Name>TimberMill.Service</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TimberMill.Web\TimberMill.Web.csproj">
       <Project>{BC9E820F-DC12-4281-AA9B-0A58D2FAB6D9}</Project>
       <Name>TimberMill.Web</Name>
