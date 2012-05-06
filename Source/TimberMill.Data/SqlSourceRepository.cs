@@ -11,15 +11,15 @@ namespace TimberMill.Data
     {
         #region ISourceRepository Members
 
-        public Source GetOrCreate(string name)
+        public Source GetOrCreate(string name, string category)
         {
             using (var dbContext = new TimberMillDbContext())
             {
-                var source = Get(dbContext, name);
+                var source = Get(dbContext, name, category);
 
                 if (source == null)
                 {
-                    source = new Source {Key = name};
+                    source = new Source {Name = name, Category = category};
                     dbContext.Sources.Add(source);
                     dbContext.SaveChanges();
                 }
@@ -27,10 +27,11 @@ namespace TimberMill.Data
             }
         }
 
-        private Source Get(TimberMillDbContext dbContext, string name)
+        private Source Get(TimberMillDbContext dbContext, string name, string category)
         {
-            return dbContext.Sources.Where(s => s.Key == name).FirstOrDefault();
+            return dbContext.Sources.Where(s => s.Name == name && s.Category == category).FirstOrDefault();
         }
         #endregion
+
     }
 }

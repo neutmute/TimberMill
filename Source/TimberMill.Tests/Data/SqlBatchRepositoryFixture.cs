@@ -14,7 +14,7 @@ namespace TimberMill.Tests.Data
         public void Create_ReturnsId()
         {
             var sourceRepo = new SqlSourceRepository();
-            var source = sourceRepo.GetOrCreate("BatchTest");
+            var source = sourceRepo.GetOrCreate("BatchTest", "cat2");
             SqlBatchRepository repo = new SqlBatchRepository();
             
             var batch = repo.Create(source);
@@ -23,8 +23,8 @@ namespace TimberMill.Tests.Data
             #region CodeGen Assertions
             Assert.That(batch.Id > 0);
             Assert.That(batch.Source.Id > 0);
-            Assert.AreEqual(null, batch.Source.Category);
-            Assert.AreEqual("BatchTest", batch.Source.Key);
+            Assert.AreEqual("cat2", batch.Source.Category);
+            Assert.AreEqual("BatchTest", batch.Source.Name);
             Assert.That(batch.DateReceived > DateTime.Now.AddMinutes(-1));
             #endregion
         }

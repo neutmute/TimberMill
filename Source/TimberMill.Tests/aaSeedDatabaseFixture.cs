@@ -9,6 +9,10 @@ namespace TimberMill.Tests
 {
     public class aaSeedDatabaseFixture : Fixture
     {
+        public aaSeedDatabaseFixture()
+        {
+            EnableTransactionScope = false;
+        }
         [Test]
         public void Seed()
         {

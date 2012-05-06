@@ -8,6 +8,6 @@ namespace TimberMill.Domain.Repositories
 {
     public interface ISourceRepository
     {
-        Source GetOrCreate(string name);
+        Source GetOrCreate(string name, string category);
     }
 }

@@ -13,11 +13,8 @@ namespace ConsoleAppTester
 
         static void Main(string[] args)
         {
-
-            //TimberMill.Service.LogReceiverServerClient client = new TimberMill.Service.LogReceiverServerClient();
-            //client.ProcessLogMessages(null);
-
-            for (int i = 0; i < 10; i++)
+            TestExceptionLog();
+            for (int i = 0; i <= 10; i++)
             {
                 Log.Info("Iteration i={0}", i);
 
@@ -27,7 +24,14 @@ namespace ConsoleAppTester
                 }
 
             }
+
             Thread.Sleep(10000);
+        }
+
+        private static void TestExceptionLog()
+        {
+            var exception = new ApplicationException("Testing the Exception logging");
+            Log.InfoException("the log message", exception);
         }
     }
 }

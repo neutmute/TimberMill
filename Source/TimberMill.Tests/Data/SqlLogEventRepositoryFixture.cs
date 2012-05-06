@@ -17,7 +17,7 @@ namespace TimberMill.Tests.Data
             var batchRepository = new SqlBatchRepository();
             var logEventRepo = new SqlLogEventRepository();
 
-            var source = sourceRepo.GetOrCreate("BatchTest");
+            var source = sourceRepo.GetOrCreate("BatchTest", null);
             var batch = batchRepository.Create(source);
             var logEvent = new LogEvent();
 
@@ -33,8 +33,8 @@ namespace TimberMill.Tests.Data
             // AssertBuilder.Generate(events, "events"); // The following assertions were generated on 06-May-2012
             #region CodeGen Assertions
             Assert.AreEqual(1, events.Count);
-            Assert.AreEqual(3, events[0].Id);
-            Assert.AreEqual(null, events[0].Batch);
+            Assert.That(events[0].Id > 0);
+            Assert.IsNotNull(events[0].Batch);
             Assert.AreEqual(Convert.ToDateTime("06-May-2012 13:40:00.000"), events[0].TimeStamp);
             Assert.AreEqual(null, events[0].Level);
             Assert.AreEqual("unit test", events[0].Message);

@@ -13,13 +13,13 @@ namespace TimberMill.Tests.Data
         public void GetOrCreate()
         {
             SqlSourceRepository repo = new SqlSourceRepository();
-            var source = repo.GetOrCreate("test1");
+            var source = repo.GetOrCreate("test1", "cat2");
 
             // AssertBuilder.Generate(source, "source"); // The following assertions were generated on 06-May-2012
             #region CodeGen Assertions
            // Assert.AreEqual(1, source.Id);
-            Assert.AreEqual(null, source.Category);
-            Assert.AreEqual("test1", source.Key);
+            Assert.AreEqual("cat2", source.Category);
+            Assert.AreEqual("test1", source.Name);
             #endregion
         }
     }

@@ -25,7 +25,7 @@ namespace TimberMill.Domain.Service
 
         public void LogEvents(string clientName, IList<LogEventInfo> events)
         {
-            var source = _sourceRepository.GetOrCreate(clientName);
+            Source source = GetSource(clientName);
             var batch = _batchRepository.Create(source);
 
             foreach (var nlogEvent in events)
@@ -34,6 +34,26 @@ namespace TimberMill.Domain.Service
                 _eventRepository.Save(logEvent);
             }
             Log.Info("{0} events saved", events.Count);
+        }
+
+        private Source GetSource(string clientName)
+        {
+            string[] categorySourceSplit = clientName.Split(new []{"|"}, StringSplitOptions.None);
+            string sourceCategory = null;
+            string sourceName;
+            switch(categorySourceSplit.Length)
+            {
+                case 2:
+                    sourceCategory = categorySourceSplit[0];
+                    sourceName = categorySourceSplit[1];
+                    break;
+                case 1:
+                    sourceName = categorySourceSplit[0];
+                    break;
+                default:
+                    throw new ArgumentException("clientName had too many pipe separators");
+            }
+            return _sourceRepository.GetOrCreate(sourceName, sourceCategory);
         }
     }
 }
