@@ -16,8 +16,12 @@ namespace TimberMill.Data
         {
             using (var dbContext = new TimberMillDbContext())
             {
+                dbContext.Batchs.Attach(logEvent.Batch);
+                dbContext.Sources.Attach(logEvent.Batch.Source);
+
                 dbContext.LogEvents.Add(logEvent);
-                dbContext.Entry(logEvent.Batch).State = EntityState.Unchanged;   
+                //dbContext.Entry(logEvent.Batch).State = EntityState.Unchanged;
+                //dbContext.Entry(logEvent.Batch.Source).State = EntityState.Unchanged;   
                 dbContext.SaveChanges();
             }
         }
@@ -27,7 +31,11 @@ namespace TimberMill.Data
             var events = new List<LogEvent>();
             using (var dbContext = new TimberMillDbContext())
             {
-                events = dbContext.LogEvents.Where(e => e.Batch.Source.Id == source.Id).ToList();
+                events = dbContext
+                            .LogEvents
+                            .Include("Batch")
+                            .Include("Batch.Source")
+                            .Where(e => e.Batch.Source.Id == source.Id).ToList();
             }
             return events;
         }

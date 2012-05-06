@@ -29,7 +29,18 @@ namespace TimberMill.Tests.Data
             logEventRepo.Save(logEvent);
 
             var events = logEventRepo.GetAll(source);
-            AssertBuilder.Generate(events, "events"); // The following assertions were generated on 06-May-2012           
+
+            // AssertBuilder.Generate(events, "events"); // The following assertions were generated on 06-May-2012
+            #region CodeGen Assertions
+            Assert.AreEqual(1, events.Count);
+            Assert.AreEqual(3, events[0].Id);
+            Assert.AreEqual(null, events[0].Batch);
+            Assert.AreEqual(Convert.ToDateTime("06-May-2012 13:40:00.000"), events[0].TimeStamp);
+            Assert.AreEqual(null, events[0].Level);
+            Assert.AreEqual("unit test", events[0].Message);
+            Assert.AreEqual("woooah", events[0].ExceptionMessage);
+            Assert.AreEqual(null, events[0].ExceptionStackTrace);
+            #endregion
         }
     }
 }
