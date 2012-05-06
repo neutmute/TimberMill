@@ -30,23 +30,10 @@ namespace TimberMill.Service
 
         public void ProcessLogMessages(NLogEvents nevents)
         {
-
-            if (nevents == null)
-            {
-                Log.Info("Received was null");
-                return;
-            }
             var events = nevents.ToEventInfo("Client");
-            Log.Info("Received {0} events", events.Count);
+            Log.Info("Received {0} events from {1}", events.Count, nevents.ClientName);
             
-            foreach (var ev in events)
-            {
-                var logger = LogManager.GetLogger(ev.LoggerName);
-                logger.Log(ev);
-            }
-
-            //Log.Info("in: {0} {1}", nevents.Events.Length, events.Count);
-            _logService.LogEvents(nevents.ClientName, nevents.Events.ToList());
+            _logService.LogEvents(nevents.ClientName, events);
         }
         #endregion
     }

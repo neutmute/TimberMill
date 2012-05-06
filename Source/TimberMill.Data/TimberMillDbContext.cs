@@ -34,6 +34,12 @@ namespace TimberMill.Data
             Database.SetInitializer(initialiser);
         }
 
+        public static void ReseedDatabase()
+        {
+            var initialiser = new DropCreateDatabaseIfModelChanges<TimberMillDbContext>();
+            initialiser.InitializeDatabase(new TimberMillDbContext());
+        }
+
         #endregion
 
         #region Methods

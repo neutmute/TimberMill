@@ -6,8 +6,9 @@ using TimberMill.Domain.Objects;
 
 namespace TimberMill.Domain.Repositories
 {
-    public interface ISourceRepository
+    public interface ILogEventRepository
     {
-        Source GetOrCreate(string name);
+        void Save(LogEvent logEvent);
     }
+    
 }

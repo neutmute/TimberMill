@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NUnit.Framework;
+using TimberMill.Data;
+using TimberMill.Domain.Objects;
+
+namespace TimberMill.Tests.Data
+{
+    public class SqlLogEventRepositoryFixture : Fixture
+    {
+        [Test]
+        public void Save_Persists()
+        {
+            var sourceRepo = new SqlSourceRepository();
+            var batchRepository = new SqlBatchRepository();
+            var logEventRepo = new SqlLogEventRepository();
+
+            var source = sourceRepo.GetOrCreate("BatchTest");
+            var batch = batchRepository.Create(source);
+            var logEvent = new LogEvent();
+
+            logEvent.Batch = batch;
+            logEvent.ExceptionMessage = "woooah";
+            logEvent.Message = "unit test";
+            logEvent.TimeStamp = DateTime.Parse("2012-05-06 13:40");
+
+            logEventRepo.Save(logEvent);
+
+            var events = logEventRepo.GetAll(source);
+            AssertBuilder.Generate(events, "events"); // The following assertions were generated on 06-May-2012           
+        }
+    }
+}

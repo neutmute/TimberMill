@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NLog;
 using NLog.LogReceiverService;
+using TimberMill.Domain.Objects;
 using TimberMill.Domain.Repositories;
 
 namespace TimberMill.Domain.Service
@@ -12,23 +13,27 @@ namespace TimberMill.Domain.Service
     {
         private ISourceRepository _sourceRepository;
         private IBatchRepository _batchRepository;
+        private ILogEventRepository _eventRepository;
+        private static readonly Logger Log = LogManager.GetCurrentClassLogger();
 
-        public LogService(ISourceRepository sourceRepository, IBatchRepository batchRepository)
+        public LogService(ISourceRepository sourceRepository, IBatchRepository batchRepository, ILogEventRepository eventRepository)
         {
             _sourceRepository = sourceRepository;
             _batchRepository = batchRepository;
+            _eventRepository = eventRepository;
         }
 
-        public void LogEvents(string clientName, List<NLogEvent> events)
+        public void LogEvents(string clientName, IList<LogEventInfo> events)
         {
             var source = _sourceRepository.GetOrCreate(clientName);
             var batch = _batchRepository.Create(source);
 
             foreach (var nlogEvent in events)
             {
-                //nlogEvent.
+                var logEvent = new LogEvent(batch, nlogEvent);
+                _eventRepository.Save(logEvent);
             }
-            
+            Log.Info("{0} events saved", events.Count);
         }
     }
 }

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TimberMill.Tests</RootNamespace>
+    <AssemblyName>TimberMill.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.2.6.1.841\lib\NET40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\..\packages\Autofac.2.6.1.841\lib\NET40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Kraken.Framework.Core">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kraken.Framework.Core.FullFx">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.Core.FullFx.dll</HintPath>
+    </Reference>
+    <Reference Include="Kraken.Framework.Testing">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Kraken.Framework.TestMonkey">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.TestMonkey.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NUnit.2.6.0.12054\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TimberMill.Tests.dll.nunit">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Compile Include="aaSeedDatabaseFixture.cs" />
+    <Compile Include="Data\SqlBatchRepositoryFixture.cs" />
+    <Compile Include="Data\SqlLogEventRepositoryFixture.cs" />
+    <Compile Include="Data\SqlSourceRepositoryFixture.cs" />
+    <Compile Include="Fixture.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TimberMill.Tests.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimberMill.Data\TimberMill.Data.csproj">
+      <Project>{19005E8D-AF29-4A26-B176-4CD6B31481BC}</Project>
+      <Name>TimberMill.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimberMill.Domain\TimberMill.Domain.csproj">
+      <Project>{C2F31AB3-EC6D-4B91-A256-FCB43EADDAFC}</Project>
+      <Name>TimberMill.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimberMill.Service\TimberMill.Service.csproj">
+      <Project>{41B1BB8B-947F-4B0D-B56F-D4F3E70577C5}</Project>
+      <Name>TimberMill.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TimberMill.Web\TimberMill.Web.csproj">
+      <Project>{BC9E820F-DC12-4281-AA9B-0A58D2FAB6D9}</Project>
+      <Name>TimberMill.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

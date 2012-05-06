@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTester", "Source\
 		{41B1BB8B-947F-4B0D-B56F-D4F3E70577C5} = {41B1BB8B-947F-4B0D-B56F-D4F3E70577C5}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimberMill.Tests", "Source\TimberMill.Tests\TimberMill.Tests.csproj", "{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,16 @@ Global
 		{A949E51D-4BF2-4E7B-AABA-02FADC19DC2B}.Release|Mixed Platforms.Build.0 = Release|x86
 		{A949E51D-4BF2-4E7B-AABA-02FADC19DC2B}.Release|x86.ActiveCfg = Release|x86
 		{A949E51D-4BF2-4E7B-AABA-02FADC19DC2B}.Release|x86.Build.0 = Release|x86
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C0EF7BCE-7EBF-44AA-9DCB-7BCF5DCA1EE8}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
