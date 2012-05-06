@@ -175,3 +175,14 @@
 /_ReSharper.TimberMill/PdbInfo/a8711c2687ee5b890bfed8b738dec0a8047a76cf
 /_ReSharper.TimberMill/PdbInfo/bd5a9da857985dff08dfe6490f600441812e1ce1
 /_ReSharper.TimberMill/PdbInfo/ec865081b0bccd342d67b905692330e3de27a520
+/Source/TimberMill.Web/bin/Autofac.Configuration.dll
+/Source/TimberMill.Web/bin/Autofac.Integration.Wcf.dll
+/Source/TimberMill.Web/bin/Autofac.dll
+/Source/TimberMill.Web/bin/Autofac.xml
+/Source/TimberMill.Web/bin/NLog.dll
+/Source/TimberMill.Web/bin/NLog.xml
+/Source/TimberMill.Web/bin/TimberMill.Data.dll
+/Source/TimberMill.Web/bin/TimberMill.Data.pdb
+/Source/TimberMill.Web/bin/TimberMill.Domain.dll
+/Source/TimberMill.Web/bin/TimberMill.Domain.pdb
+/Source/TimberMill.Tests/obj/Debug/build.force
