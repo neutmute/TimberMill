@@ -20,7 +20,9 @@ AS
 			,L.Level
 			,L.Message
 			,L.Exception
-	FROM	Sources		S
+            ,S.Id           AS SourceId
+            ,B.Id           AS BatchId
+	FROM	Sources		    S
 	JOIN	[Batches]		B ON S.Id = B.Source_Id
 	JOIN	LogEvents	L ON B.Id = L.Batch_Id
             ");
