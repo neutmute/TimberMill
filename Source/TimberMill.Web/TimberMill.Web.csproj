@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SlowCheetahTargets Condition=" '$(SlowCheetahTargets)'=='' ">$(MSBuildProjectDirectory)\..\..\ReferencedAssemblies\SlowCheetah.Transforms.targets</SlowCheetahTargets>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Autofac">
       <HintPath>..\..\packages\Autofac.2.6.1.841\lib\NET40\Autofac.dll</HintPath>
@@ -132,13 +135,16 @@
     <Content Include="Scripts\modernizr-1.7.min.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
+      <TransformOnBuild>true</TransformOnBuild>
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
+      <IsTransformFile>True</IsTransformFile>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
     </Content>
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
@@ -208,4 +214,5 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SlowCheetahTargets)" Condition="Exists('$(SlowCheetahTargets)')" />
 </Project>
