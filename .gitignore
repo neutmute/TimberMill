@@ -197,3 +197,7 @@
 /Source\TimberMill.Data\obj\Debug/build.force
 /Source\TimberMill.Tests\bin\Debug/NLog.xml
 /Source\TimberMill.Tests\bin\Debug/NLog.xml
+/Source\TimberMill.Tests\bin\Debug/NLog.xml
+/Source\TimberMill.Web\bin/Web.config
+/Source\TimberMill.Tests\bin\Debug/NLog.xml
+/Source\TimberMill.Web\bin/Web.config
