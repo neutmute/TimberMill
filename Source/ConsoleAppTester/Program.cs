@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading;
 using NLog;
@@ -13,6 +15,9 @@ namespace ConsoleAppTester
 
         static void Main(string[] args)
         {
+            TestProxyConfig();
+
+
             TestExceptionLog();
             TestExceptionLog2();
 
@@ -28,6 +33,14 @@ namespace ConsoleAppTester
             }
 
             Thread.Sleep(10000);
+        }
+
+        private static void TestProxyConfig()
+        {
+            WebClient c = new WebClient();
+            var s = c.OpenRead("https://silverpc/TimberMillDev/Data/LogReceiverService.svc");
+            StreamReader sr = new StreamReader(s);
+            var result = sr.ReadToEnd();
         }
 
         private static void TestExceptionLog()
