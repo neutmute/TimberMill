@@ -38,7 +38,7 @@ namespace ConsoleAppTester
         private static void TestProxyConfig()
         {
             WebClient c = new WebClient();
-            var s = c.OpenRead("https://silverpc/TimberMillDev/Data/LogReceiverService.svc");
+            var s = c.OpenRead("https://localhost/TimberMillDev/Data/LogReceiverService.svc");
             StreamReader sr = new StreamReader(s);
             var result = sr.ReadToEnd();
         }
