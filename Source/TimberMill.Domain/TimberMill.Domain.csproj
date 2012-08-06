@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionItems\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Objects\Batch.cs" />
     <Compile Include="Objects\LogEvent.cs" />
     <Compile Include="Objects\Source.cs" />

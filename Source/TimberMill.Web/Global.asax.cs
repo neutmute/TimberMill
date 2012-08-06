@@ -7,6 +7,7 @@ using System.Web.Routing;
 using Autofac;
 using Autofac.Integration.Wcf;
 using NLog;
+using Kraken.Framework.Core;
 
 namespace TimberMill.Web
 {
@@ -37,6 +38,9 @@ namespace TimberMill.Web
         protected void Application_Start()
         {
             Log.Info("-------------------------------------------------------------------------------------------------------");
+            var appdata = ExecutionEnvironment.GetApplicationMetadata();
+            Log.Info("{0}", appdata.GetLogStartupMessage());
+
             ComposeAutofac();
 
             AreaRegistration.RegisterAllAreas();

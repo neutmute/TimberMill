@@ -50,6 +50,12 @@
       <Private>True</Private>
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Kraken.Framework.Core">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Kraken.Framework.Core.FullFx">
+      <HintPath>..\..\ReferencedAssemblies\Kraken.Framework.Core.FullFx.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="NLog">
       <HintPath>..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
@@ -81,6 +87,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionItems\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="AutofacModule.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

@@ -49,6 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionItems\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="SqlBatchRepository.cs" />
     <Compile Include="SqlLogEventRepository.cs" />
     <Compile Include="SqlSourceRepository.cs" />

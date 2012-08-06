@@ -71,6 +71,9 @@
     <None Include="TimberMill.Tests.dll.nunit">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Compile Include="..\SolutionItems\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="aaSeedDatabaseFixture.cs" />
     <Compile Include="Data\SqlBatchRepositoryFixture.cs" />
     <Compile Include="Data\SqlLogEventRepositoryFixture.cs" />
