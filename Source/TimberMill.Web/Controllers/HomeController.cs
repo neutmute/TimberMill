@@ -11,7 +11,7 @@ namespace TimberMill.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.AppData = ExecutionEnvironment.GetApplicationMetadata(); ;
+            ViewBag.AppData = ExecutionEnvironment.GetApplicationMetadata();
 
             return View();
         }
