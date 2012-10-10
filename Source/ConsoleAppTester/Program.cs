@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using NLog;
+using NLog.LogReceiverService;
 
 namespace ConsoleAppTester
 {
@@ -15,8 +16,12 @@ namespace ConsoleAppTester
 
         static void Main(string[] args)
         {
-            TestProxyConfig();
+         //   TestProxyConfig();
 
+            var c = new ServiceReference1.LogReceiverServerClient();
+            NLogEvents v = new NLogEvents();
+            
+            c.ProcessLogMessages(v);
 
             TestExceptionLog();
             TestExceptionLog2();
@@ -38,7 +43,8 @@ namespace ConsoleAppTester
         private static void TestProxyConfig()
         {
             WebClient c = new WebClient();
-            var s = c.OpenRead("https://localhost/TimberMillDev/Data/LogReceiverService.svc");
+            
+            var s = c.OpenRead("https://www.snowmute.net/TimberMillDev/Data/LogReceiverService.svc");
             StreamReader sr = new StreamReader(s);
             var result = sr.ReadToEnd();
         }

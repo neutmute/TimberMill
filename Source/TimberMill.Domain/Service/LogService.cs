@@ -11,10 +11,16 @@ namespace TimberMill.Domain.Service
 {
     public class LogService
     {
+        #region Fields
+
         private ISourceRepository _sourceRepository;
         private IBatchRepository _batchRepository;
         private ILogEventRepository _eventRepository;
         private static readonly Logger Log = LogManager.GetCurrentClassLogger();
+
+        #endregion
+
+        #region Ctor
 
         public LogService(ISourceRepository sourceRepository, IBatchRepository batchRepository, ILogEventRepository eventRepository)
         {
@@ -23,9 +29,20 @@ namespace TimberMill.Domain.Service
             _eventRepository = eventRepository;
         }
 
+        #endregion
+
+        #region Methods
+
         public void LogEvents(NLogEvents events)
         {
             Source source = ParseAndCreateSource(events.ClientName);
+
+            if (source == null)
+            {
+                Log.Error("Ignoring received events");
+                return;
+            }
+
             var batch = _batchRepository.Create(source);
            
             var timberMillEvents = ExtractLogEvents(events, batch);
@@ -65,6 +82,11 @@ namespace TimberMill.Domain.Service
 
         private Source ParseAndCreateSource(string clientName)
         {
+            if (string.IsNullOrEmpty(clientName))
+            {
+                Log.Error("ClientName unexpectedly null");
+                return null;
+            }
             string[] categorySourceSplit = clientName.Split(new []{"|"}, StringSplitOptions.None);
             string sourceCategory = null;
             string sourceName;
@@ -78,9 +100,12 @@ namespace TimberMill.Domain.Service
                     sourceName = categorySourceSplit[0];
                     break;
                 default:
-                    throw new ArgumentException("clientName had too many pipe separators");
+                    Log.Error("clientName had too many pipe separators");
+                    return null;
             }
             return _sourceRepository.GetOrCreate(sourceName, sourceCategory);
         }
+
+        #endregion
     }
 }

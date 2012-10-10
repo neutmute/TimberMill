@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://nlog-project.org/ws/" elementFormDefault="qualified" targetNamespace="http://nlog-project.org/ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProcessLogMessages">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="events" nillable="true" type="tns:events" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="events">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cli" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="bts" type="xs:long" />
+      <xs:element minOccurs="0" name="lts" nillable="true" type="tns:StringCollection" />
+      <xs:element minOccurs="0" name="str" nillable="true" type="tns:StringCollection" />
+      <xs:element minOccurs="0" name="ev" nillable="true" type="tns:ArrayOfe" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="events" nillable="true" type="tns:events" />
+  <xs:complexType name="StringCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="l" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StringCollection" nillable="true" type="tns:StringCollection" />
+  <xs:complexType name="ArrayOfe">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="e" nillable="true" type="tns:e" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfe" nillable="true" type="tns:ArrayOfe" />
+  <xs:complexType name="e">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:int" />
+      <xs:element minOccurs="0" name="lv" type="xs:int" />
+      <xs:element minOccurs="0" name="lg" type="xs:int" />
+      <xs:element minOccurs="0" name="ts" type="xs:long" />
+      <xs:element minOccurs="0" name="m" type="xs:int" />
+      <xs:element minOccurs="0" name="val" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="e" nillable="true" type="tns:e" />
+  <xs:element name="ProcessLogMessagesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

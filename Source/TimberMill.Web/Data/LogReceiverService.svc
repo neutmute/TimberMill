@@ -1,7 +1,7 @@
 ﻿<%@ ServiceHost 
 	Language="C#" 
 	Debug="true" 
-	Service="TimberMill.Web.Data.LogReceiverService, TimberMill.Web" 
+	Service="TimberMill.Web.Data.LogReceiverService, TimberMill.Web"
 	Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf"
 	CodeBehind="LogReceiverService.svc.cs" 
 %>
