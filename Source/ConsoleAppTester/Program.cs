@@ -18,10 +18,9 @@ namespace ConsoleAppTester
         {
          //   TestProxyConfig();
 
-            var c = new ServiceReference1.LogReceiverServerClient();
-            NLogEvents v = new NLogEvents();
-            
-            c.ProcessLogMessages(v);
+            //var c = new ServiceReference1.LogReceiverServerClient();
+            //NLogEvents v = new NLogEvents();
+            //c.ProcessLogMessages(v);
 
             TestExceptionLog();
             TestExceptionLog2();
@@ -44,7 +43,7 @@ namespace ConsoleAppTester
         {
             WebClient c = new WebClient();
             
-            var s = c.OpenRead("https://www.snowmute.net/TimberMillDev/Data/LogReceiverService.svc");
+            var s = c.OpenRead("http://localhost/TimberMillDev/Data/LogReceiverService.svc");
             StreamReader sr = new StreamReader(s);
             var result = sr.ReadToEnd();
         }
